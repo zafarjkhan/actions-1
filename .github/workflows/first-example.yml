@@ -8,4 +8,6 @@ jobs:
         steps:
           - name: Welcome message
             run: echo "My first Github Actions Job"
+          - name: Welcome message
+            run: git clone https://github.com/zafarjkhan/actions-1.git
 
