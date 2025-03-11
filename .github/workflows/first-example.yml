@@ -8,8 +8,18 @@ jobs:
         steps:
           - name: Welcome message
             run: echo "My first Github Actions Job"
-          - name: Clone repo
-            run: git clone https://github.com/zafarjkhan/actions-1.git
-          - name: list repo directory
-            run: ls -la ./actions-1
+
+          - name: Checkout Repo
+            uses: actions/checkout@v4
+
+          - name: List and Read File
+            run: |
+              ld -ltra
+              cat README.md
+
+          - name: Generate ASCII Artwork
+            run: cowsay -f dragon "Run for cover, I am a DRAGON...RAWR!" >> dragon.txt
+
+
+  
 
