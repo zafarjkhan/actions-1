@@ -14,6 +14,12 @@ jobs:
           
         - name: Sleep for 30 seconds
           run: sleep 30
+        
+        - name: Upload dragon.txt artfact
+          uses: actions/upload-artifact@v4
+          with:
+            name: my-artifact
+            path: dragon.txt
 
     test_job_2:
       needs: build_job_1
@@ -25,12 +31,6 @@ jobs:
         - name: Test File Exists
           run: grep -i "dragon" dragon.txt
 
-        - name: Upload dragon.txt artfact
-          uses: actions/upload-artifact@v4
-          with:
-            name: my-artifact
-            path: dragon.txt
-    
     deploy_job_3:
       needs: [build_job_1, test_job_2]
       runs-on: ubuntu-latest
